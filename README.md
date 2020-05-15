@@ -31,5 +31,4 @@ Artist Booking Site
       ├── forms
       ├── layouts
       └── pages
-  ```ls
   
