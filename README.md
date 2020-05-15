@@ -3,7 +3,7 @@ Artist Booking Site
 
 ![Fyyur-Homepage](static/img/Homepage.png)
 
-### Tech Stack
+### Tech Stack:
 
 * **SQLAlchemy ORM**
 * **PostgreSQL**
@@ -11,7 +11,7 @@ Artist Booking Site
 * **Flask-Migrate** 
 * **HTML**, **CSS**, **Javascript** and **Bootstrap 3**
 
-### Project Structure
+### Project Structure:
 
   ```sh
   ├── README.md
