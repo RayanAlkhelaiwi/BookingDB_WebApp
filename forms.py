@@ -5,6 +5,15 @@ from wtforms.validators import DataRequired, AnyOf, URL, Regexp
 
 
 class ShowForm(Form):
+    """
+    Implement a form for Show table, with validation
+
+    Args:
+        None (Inheritence of Form from flask_wtf)
+
+    Returns:
+        None
+    """
     artist_id = StringField(
         'artist_id'
     )
@@ -14,10 +23,20 @@ class ShowForm(Form):
     start_time = DateTimeField(
         'start_time',
         validators=[DataRequired()],
-        default= datetime.today()
+        default=datetime.today()
     )
 
+
 class VenueForm(Form):
+    """
+    Implement a form for Venue table, with validation
+
+    Args:
+        None (Inheritence of Form from flask_wtf)
+
+    Returns:
+        None
+    """
     name = StringField(
         'name', validators=[DataRequired()]
     )
@@ -84,13 +103,12 @@ class VenueForm(Form):
         'address', validators=[DataRequired()]
     )
     phone = StringField(
-        'phone', validators=[DataRequired(), Regexp(r'/\d{10}/')] # IntegerField()
+        'phone', validators=[DataRequired(), Regexp(r'^\d{10}$')]
     )
     image_link = StringField(
         'image_link', validators=[URL()]
     )
     genres = SelectMultipleField(
-        # [DONE!] TODO implement enum restriction
         'genres', validators=[DataRequired()],
         choices=[
             ('Alternative', 'Alternative'),
@@ -130,7 +148,17 @@ class VenueForm(Form):
         'seeking_description'
     )
 
+
 class ArtistForm(Form):
+    """
+    Implement a form for Artist table, with validation
+
+    Args:
+        None (Inheritence of Form from flask_wtf)
+
+    Returns:
+        None
+    """
     name = StringField(
         'name', validators=[DataRequired()]
     )
@@ -194,15 +222,13 @@ class ArtistForm(Form):
         ]
     )
     phone = StringField(
-        # [DONE] TODO implement validation logic for state
         'phone',
-        validators=[DataRequired(), Regexp(r'/\d{10}/')]  # IntegerField()
+        validators=[DataRequired(), Regexp(r'^\d{10}$')]
     )
     image_link = StringField(
         'image_link', validators=[URL()]
     )
     genres = SelectMultipleField(
-        # [DONE!] TODO implement enum restriction
         'genres', validators=[DataRequired()],
         choices=[
             ('Alternative', 'Alternative'),
@@ -227,7 +253,6 @@ class ArtistForm(Form):
         ]
     )
     facebook_link = StringField(
-        # [DONE!] TODO implement enum restriction
         'facebook_link', validators=[URL()]
     )
 
@@ -242,5 +267,3 @@ class ArtistForm(Form):
     seeking_description = StringField(
         'seeking_description'
     )
-
-# [DONE] TODO IMPLEMENT NEW ARTIST FORM AND NEW SHOW FORM
