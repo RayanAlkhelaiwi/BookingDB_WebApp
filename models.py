@@ -1,4 +1,6 @@
 from app import db
+# from flask_sqlalchemy import SQLAlchemy
+# db = SQLAlchemy()
 
 class Show(db.Model):
     """
@@ -10,6 +12,8 @@ class Show(db.Model):
     Returns:
         None
     """
+    __tablename__ = 'show'
+
     id = db.Column(db.Integer, primary_key=True)
     venue_id = db.Column(db.Integer, db.ForeignKey('venue.id'))
     artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'))
@@ -25,6 +29,8 @@ class Venue(db.Model):
     Returns:
         None
     """
+    __tablename__ = 'venue'
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     city = db.Column(db.String(120))
@@ -49,6 +55,8 @@ class Artist(db.Model):
     Returns:
         None
     """
+    __tablename__ = 'artist'
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     city = db.Column(db.String(120))
