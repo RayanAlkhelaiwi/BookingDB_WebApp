@@ -1,5 +1,5 @@
-# Fyyur
-Artist Booking Site
+# Booking Database Web App
+Artist Booking Site, using ORM (SQLAlchemy)
 
 ![Fyyur-Homepage](static/img/Homepage.png)
 
